@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InterviewIQ</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<div class="app-container">
+
+    <!-- Header -->
+    <div class="app-header">
+        <div class="status-dot"></div>
+        <h1>InterviewIQ</h1>
+    </div>
+
+    <!-- Screen 1: Upload -->
+    <div id="upload-screen">
+        <p>Upload your resume and paste the job description to start your mock interview</p>
+
+        <div class="form-group">
+            <label>Upload Resume (PDF)</label>
+            <input type="file" id="resume-input" accept=".pdf">
+        </div>
+
+        <div class="form-group">
+            <label>Job Description</label>
+            <textarea id="jd-input" placeholder="Paste the job description here..."></textarea>
+        </div>
+
+        <button id="start-btn">Start Interview</button>
+    </div>
+
+    <!-- Screen 2: Interview -->
+    <div id="interview-screen" style="display:none">
+
+        <!-- Chat window -->
+        <div id="chat-window">
+            <!-- chat bubbles appear here -->
+        </div>
+
+        <!-- Input bar -->
+        <div class="chat-input-bar">
+            <textarea id="answer-input" placeholder="Write your answer here..."></textarea>
+            <div class="chat-actions">
+                <button id="end-btn">End Interview</button>
+                <button id="wrong-resume-btn">Wrong Resume?</button>
+                <button id="submit-btn">Submit Answer →</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Screen 3: Report -->
+    <div id="report-screen" style="display:none">
+        <h2>Your Interview Report</h2>
+
+        <div id="report-display">
+            <canvas id="radar-chart"></canvas>
+        </div>
+
+        <div id="summary-txt">
+            <h3>Summary</h3>
+            <p id="summary-content"></p>
+        </div>
+
+        <div id="strengths">
+            <h3>Strengths</h3>
+            <ul id="strengths-list"></ul>
+        </div>
+
+        <div id="weaknesses">
+            <h3>Weaknesses</h3>
+            <ul id="weaknesses-list"></ul>
+        </div>
+
+        <div id="suggestions">
+            <h3>Suggestions</h3>
+            <ul id="suggestions-list"></ul>
+        </div>
+
+        <button id="startover-btn">Start Over</button>
+    </div>
+
+</div>
+
+<script src="/static/js/app.js"></script>
+
+</body>
+</html>
