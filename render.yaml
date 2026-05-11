@@ -1,9 +1,7 @@
 services:
   - type: web
     name: interviewiq
-    runtime: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn run:app
+    runtime: docker
     envVars:
       - key: GROQ_API_KEY
         sync: false
