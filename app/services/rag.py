@@ -3,6 +3,9 @@ from sentence_transformers import SentenceTransformer
 import faiss
 import numpy as np
 
+# load model once at startup — saves memory and time
+model = SentenceTransformer("all-MiniLM-L6-v2")
+
 
 def build_faiss_index(text):
     splitter = RecursiveCharacterTextSplitter(
@@ -11,7 +14,6 @@ def build_faiss_index(text):
     )
     chunks = splitter.split_text(text)
 
-    model = SentenceTransformer("all-MiniLM-L6-v2")
     embeddings = model.encode(chunks)
     embeddings = np.array(embeddings).astype("float32")
 
@@ -23,7 +25,6 @@ def build_faiss_index(text):
 
 
 def retrieve_chunks(query, index, chunks, k=3):
-    model = SentenceTransformer("all-MiniLM-L6-v2")
     query_vector = model.encode([query]).astype("float32")
 
     distances, indices = index.search(query_vector, k)
