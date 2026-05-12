@@ -13,4 +13,4 @@ COPY . .
 
 EXPOSE 7860
 
-CMD ["gunicorn", "--bind", "0.0.0.0:7860", "--chdir", "/app", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:7860", "wsgi:app"]
