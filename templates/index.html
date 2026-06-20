@@ -37,18 +37,54 @@
     <!-- Screen 2: Interview -->
     <div id="interview-screen" style="display:none">
 
+        <!-- Interviewer + candidate video panel -->
+        <div class="presence-bar">
+            <div class="mascot-frame">
+                <svg id="mascot" class="mascot idle" width="72" height="72" viewBox="0 0 130 140" role="img" aria-label="Interviewer status">
+                    <ellipse cx="65" cy="130" rx="32" ry="6" class="mascot-shadow"></ellipse>
+                    <g id="mascot-body-group">
+                        <circle cx="65" cy="70" r="48" id="mascot-body"></circle>
+                        <ellipse cx="48" cy="64" rx="5" ry="6" id="mascot-eye-l"></ellipse>
+                        <ellipse cx="82" cy="64" rx="5" ry="6" id="mascot-eye-r"></ellipse>
+                        <path d="M52 84 Q65 92 78 84" fill="none" id="mascot-mouth-line" stroke-width="3" stroke-linecap="round"></path>
+                        <ellipse cx="65" cy="85" rx="11" ry="7" id="mascot-mouth-open" stroke-width="0"></ellipse>
+                        <path d="M22 50 Q14 70 22 90" fill="none" id="mascot-wave1" stroke-width="2.5" stroke-linecap="round"></path>
+                        <path d="M14 44 Q2 70 14 96" fill="none" id="mascot-wave2" stroke-width="2.5" stroke-linecap="round"></path>
+                    </g>
+                </svg>
+                <span id="mascot-label" class="mascot-label">Ready</span>
+            </div>
+
+            <div class="webcam-frame">
+                <video id="webcam-video" autoplay playsinline muted></video>
+                <span id="webcam-status" class="webcam-status">Camera off</span>
+            </div>
+        </div>
+
         <!-- Chat window -->
         <div id="chat-window">
             <!-- chat bubbles appear here -->
         </div>
 
+        <!-- Live transcript while listening -->
+        <div id="live-transcript" class="live-transcript" style="display:none">
+            <span class="live-dot"></span>
+            <span id="live-transcript-text">Listening...</span>
+        </div>
+
         <!-- Input bar -->
         <div class="chat-input-bar">
-            <textarea id="answer-input" placeholder="Write your answer here..."></textarea>
+            <textarea id="answer-input" placeholder="Write your answer, or use the mic →"></textarea>
             <div class="chat-actions">
-                <button id="end-btn">End Interview</button>
-                <button id="wrong-resume-btn">Wrong Resume?</button>
-                <button id="submit-btn">Submit Answer →</button>
+                <div class="chat-actions-left">
+                    <button id="end-btn">End Interview</button>
+                    <button id="wrong-resume-btn">Wrong Resume?</button>
+                </div>
+                <div class="chat-actions-right">
+                    <button id="mic-btn" type="button" aria-label="Start speaking" title="Speak your answer">🎤</button>
+                    <button id="done-answering-btn" type="button" style="display:none">Done Answering</button>
+                    <button id="submit-btn">Submit Answer →</button>
+                </div>
             </div>
         </div>
 
